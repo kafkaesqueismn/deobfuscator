@@ -130,3 +130,7 @@ input.
   encoding), so Base64 inside URLs survives intact.
 - Base32 must be uppercase. Allowing lowercase would make most English words
   "valid" Base32.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
