@@ -1,5 +1,7 @@
 # deobf — multi-decoder / deobfuscator
 
+[![tests](https://github.com/kafkaesqueismn/deobfuscator/actions/workflows/tests.yml/badge.svg)](https://github.com/kafkaesqueismn/deobfuscator/actions/workflows/tests.yml)
+
 A small command-line tool for CTFs and malware triage that detects and decodes
 **Base64, Base32, hex, URL-encoding, ROT13 and single-byte XOR**, and can
 recursively peel **layered** encodings ("chain" mode). It's a single file and

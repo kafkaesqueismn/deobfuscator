@@ -1,0 +1,27 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run tests
+        run: python -m unittest -v
+      - name: Smoke-test the CLI on the samples
+        run: |
+          python deobf.py -f samples/base64.txt
+          python deobf.py -f samples/chain_deep.txt --chain | grep -F 'flag{peel_the_onion_one_layer_at_a_time}'
